@@ -32,15 +32,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>NeuralNetworks.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Layer.cs" />
-    <Compile Include="NeuralNetwork.cs" />
-    <Compile Include="Neuron.cs" />
-    <Compile Include="NeuronType.cs" />
-    <Compile Include="Topology.cs" />
+    <Compile Include="Model\Layer.cs" />
+    <Compile Include="Model\NeuralNetwork.cs" />
+    <Compile Include="Model\Neuron.cs" />
+    <Compile Include="Model\NeuronType.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Model\Topology.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

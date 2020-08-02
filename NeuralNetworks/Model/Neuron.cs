@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace NeuralNetworks
+namespace NeuralNetworks.Model
 {
     public class Neuron
     {
@@ -9,7 +9,7 @@ namespace NeuralNetworks
         public NeuronType NeuronType { get; }
         public double Output { get; private set; }
 
-        public Neuron(int inputCount, NeuronType type = NeuronType.Normal)
+        public Neuron(int inputCount, NeuronType type = NeuronType.Hidden)
         {
             if (inputCount <= 0)
             {
@@ -44,12 +44,12 @@ namespace NeuralNetworks
                     " должно соответствовать числу весов!", nameof(inputs));
             }
 
-            var sum = 0.0;
+            double sum = 0;
 
             for (int i = 0; i < inputs.Count; i++)
                 sum += inputs[i] * Weights[i];
 
-            Output = Sigmoid(sum);
+            Output = NeuronType != NeuronType.Input ? Sigmoid(sum) : sum;
             return Output;
         }
 
