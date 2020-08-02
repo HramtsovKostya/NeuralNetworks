@@ -5,25 +5,49 @@ namespace NeuralNetworks
 {
     public class Neuron
     {
-        public List<double> Weigths { get; }
+        public List<double> Weights { get; }
         public NeuronType NeuronType { get; }
         public double Output { get; private set; }
 
         public Neuron(int inputCount, NeuronType type = NeuronType.Normal)
         {
+            if (inputCount <= 0)
+            {
+                throw new ArgumentException("Количество входных сигналов" +
+                    " должно быть положительным числом!", nameof(inputCount));
+            }
+
             NeuronType = type;
-            Weigths = new List<double>();
+            Weights = new List<double>();
 
             for (int i = 0; i < inputCount; i++)
-                Weigths.Add(1);
+                Weights.Add(1);
+        }
+
+        public void SetWeights(params double[] weights)
+        {
+            if (weights.Length != Weights.Count)
+            {
+                throw new ArgumentException("Количество входных параметров" +
+                    " должно соответствовать числу весов!", nameof(weights));
+            }
+
+            for (int i = 0; i < weights.Length; i++)
+                Weights[i] = weights[i];
         }
 
         public double FeedForward(List<double> inputs)
         {
-            double sum = 0.0;
+            if (inputs.Count != Weights.Count)
+            {
+                throw new ArgumentException("Количество входных сигналов" +
+                    " должно соответствовать числу весов!", nameof(inputs));
+            }
+
+            var sum = 0.0;
 
             for (int i = 0; i < inputs.Count; i++)
-                sum += inputs[i] * Weigths[i];
+                sum += inputs[i] * Weights[i];
 
             Output = Sigmoid(sum);
             return Output;
@@ -31,8 +55,7 @@ namespace NeuralNetworks
 
         private double Sigmoid(double valueX)
         {
-            var result = 1.0 / (1.0 + Math.Exp(-valueX));
-            return result;
+            return 1.0 / (1.0 + Math.Exp(-valueX));
         }
 
         public override string ToString()
