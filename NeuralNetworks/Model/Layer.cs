@@ -7,7 +7,8 @@ namespace NeuralNetworks.Model
     public class Layer
     {
         public List<Neuron> Neurons { get; }
-        public int Count => Neurons?.Count ?? 0;
+        public int NeuronCount => Neurons?.Count ?? 0;
+        public NeuronType Type { get; set; }
 
         public Layer(List<Neuron> neurons, NeuronType type = NeuronType.Hidden)
         {
@@ -24,11 +25,14 @@ namespace NeuralNetworks.Model
             }
 
             Neurons = neurons;
+            Type = type;
         }
 
         public List<double> GetSignals()
         {
             return Neurons.Select(neuron => neuron.Output).ToList();
         }
+
+        public override string ToString() => Type.ToString();
     }
 }
