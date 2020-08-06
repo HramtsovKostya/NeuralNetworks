@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuralNetworks", "NeuralNetworks\NeuralNetworks.csproj", "{08B53F39-EDA1-4F2D-932D-DB01D4CADD67}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuralNetworksTests", "NeuralNetworksTests\NeuralNetworksTests.csproj", "{C3422F53-3E1D-4074-A1AA-7EB38CC31DCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuralNetworks", "NeuralNetworks\NeuralNetworks.csproj", "{056A26BB-6E8E-46A7-B0EF-D92894064E41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedicalSystem", "MedicalSystem\MedicalSystem.csproj", "{68E0F69A-BDD2-40CA-A193-7B8D07AAA1E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{08B53F39-EDA1-4F2D-932D-DB01D4CADD67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{08B53F39-EDA1-4F2D-932D-DB01D4CADD67}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{08B53F39-EDA1-4F2D-932D-DB01D4CADD67}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{08B53F39-EDA1-4F2D-932D-DB01D4CADD67}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C3422F53-3E1D-4074-A1AA-7EB38CC31DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C3422F53-3E1D-4074-A1AA-7EB38CC31DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3422F53-3E1D-4074-A1AA-7EB38CC31DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3422F53-3E1D-4074-A1AA-7EB38CC31DCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{056A26BB-6E8E-46A7-B0EF-D92894064E41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{056A26BB-6E8E-46A7-B0EF-D92894064E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{056A26BB-6E8E-46A7-B0EF-D92894064E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{056A26BB-6E8E-46A7-B0EF-D92894064E41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68E0F69A-BDD2-40CA-A193-7B8D07AAA1E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68E0F69A-BDD2-40CA-A193-7B8D07AAA1E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68E0F69A-BDD2-40CA-A193-7B8D07AAA1E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68E0F69A-BDD2-40CA-A193-7B8D07AAA1E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

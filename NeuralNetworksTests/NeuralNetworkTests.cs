@@ -127,39 +127,41 @@ namespace NeuralNetworks.Tests
             var parasitizedImageInput = converter.Convert(@"..\..\Images\Parasitized.png");
             var uninfectedImageInput = converter.Convert(@"..\..\Images\Uninfected.png");
 
-            var count = parasitizedImageInput.Count;
+            var count = parasitizedImageInput.Length;
             var topology = new Topology(count, 1, 0.1, count / 2);
             var neuralNetwork = new NeuralNetwork(topology);
 
-            var parasitizedInputs = GetData(parasitizedPath, converter, parasitizedImageInput, countOfImages);
+            var parasitizedInputs = GetData(parasitizedPath, converter,
+                parasitizedImageInput, countOfImages);
+
             neuralNetwork.Learn(new double[] { 1 }, parasitizedInputs, 10);
 
-            var uninfectedInputs = GetData(uninfectedPath, converter, uninfectedImageInput, countOfImages);
+            var uninfectedInputs = GetData(uninfectedPath, converter,
+                uninfectedImageInput, countOfImages);
+
             neuralNetwork.Learn(new double[] { 0 }, uninfectedInputs, 10);
 
-            var parasitized = neuralNetwork.Predict(ToArrayDouble(parasitizedImageInput)).Output;
-            var uninfected = neuralNetwork.Predict(ToArrayDouble(uninfectedImageInput)).Output;
+            var parasitized = neuralNetwork
+                .Predict(parasitizedImageInput).Output;
+
+            var uninfected = neuralNetwork
+                .Predict(uninfectedImageInput).Output;
 
             Assert.AreEqual(1, Math.Round(parasitized, 2));
             Assert.AreEqual(0, Math.Round(uninfected, 2));
         }
 
-        private static double[] ToArrayDouble(IEnumerable<int> items)
-        {
-            return items.Select(i => (double)i).ToArray();
-        }
-
         private static double[,] GetData(string path, 
-            PictureConverter converter, List<int> imageInput, int size)
+            PictureConverter converter, double[] imageInput, int size)
         {
             var images = Directory.GetFiles(path);
-            var inputs = new double[size, imageInput.Count];
+            var inputs = new double[size, imageInput.Length];
 
             for (int i = 0; i < size; i++)
             {
                 var image = converter.Convert(images[i]);
 
-                for (int j = 0; j < image.Count; j++)
+                for (int j = 0; j < image.Length; j++)
                     inputs[i, j] = image[j];
             }
             return inputs;

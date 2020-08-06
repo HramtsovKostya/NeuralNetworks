@@ -66,11 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NeuralNetworks\NeuralNetworks.csproj">
-      <Project>{08B53F39-EDA1-4F2D-932D-DB01D4CADD67}</Project>
+      <Project>{056a26bb-6e8e-46a7-b0ef-d92894064e41}</Project>
       <Name>NeuralNetworks</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Images\Uninfected.png" />
     <Content Include="Images\Parasitized.png" />
