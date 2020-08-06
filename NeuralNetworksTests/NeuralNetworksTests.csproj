@@ -56,10 +56,12 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="PictureConverterTests.cs" />
     <Compile Include="NeuralNetworkTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="heart.csv" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +69,11 @@
       <Project>{08B53F39-EDA1-4F2D-932D-DB01D4CADD67}</Project>
       <Name>NeuralNetworks</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Images\Uninfected.png" />
+    <Content Include="Images\Parasitized.png" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

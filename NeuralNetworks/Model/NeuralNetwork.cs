@@ -109,6 +109,7 @@ namespace NeuralNetworks.Model
 
         public double Learn(double[] expected, double[,] inputs, int epoch)
         {
+            var inputSignals = Scaling(inputs);
             double error = 0;
 
             for (int i = 0; i < epoch; i++)
@@ -116,7 +117,7 @@ namespace NeuralNetworks.Model
                 for (int j = 0; j < expected.Length; j++)
                 {
                     var output = expected[j];
-                    var input = GetRow(inputs, j);
+                    var input = GetRow(inputSignals, j);
 
                     error += BackPropagation(output, input);
                 }
@@ -131,6 +132,16 @@ namespace NeuralNetworks.Model
 
             for (int i = 0; i < matrix.GetLength(1); i++)
                 array[i] = matrix[row, i];
+
+            return array;
+        }
+
+        public static double[] GetColumn(double[,] matrix, int column)
+        {
+            var array = new double[matrix.GetLength(0)];
+
+            for (int i = 0; i < matrix.GetLength(0); i++)
+                array[i] = matrix[i, column];
 
             return array;
         }
