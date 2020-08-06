@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace NeuralNetworks.Model.Tests
 {
@@ -9,11 +10,13 @@ namespace NeuralNetworks.Model.Tests
         public void ConvertTest()
         {
             var converter = new PictureConverter();
-            var inputs = converter.Convert(@"Images\Parasitized.png");
-            converter.Save(@"Images\image1.png", inputs);
+            const string PATH = @"..\..\Images\";
 
-            inputs = converter.Convert(@"Images\Uninfected.png");
-            converter.Save(@"Images\image2.png", inputs);
+            var inputs = converter.Convert(PATH + "Parasitized.png");
+            converter.Save(PATH + "image1.png", inputs);
+
+            inputs = converter.Convert(PATH + "Uninfected.png");
+            converter.Save(PATH + "image2.png", inputs);
         }
     }
 }

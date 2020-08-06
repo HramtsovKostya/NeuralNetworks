@@ -69,7 +69,7 @@ namespace NeuralNetworks.Model
             Layers.Add(outputLayer);
         }
 
-        public Neuron FeedForward(params double[] inputSignals)
+        public Neuron Predict(params double[] inputSignals)
         {
             if (inputSignals.Length != Topology.InputCount)
             {
@@ -148,7 +148,7 @@ namespace NeuralNetworks.Model
 
         private double BackPropagation(double expected, params double[] inputs)
         {
-            var actual = FeedForward(inputs).Output;
+            var actual = Predict(inputs).Output;
             var difference = actual - expected;
 
             foreach (var neuron in Layers.Last().Neurons)
@@ -196,7 +196,10 @@ namespace NeuralNetworks.Model
                 var divider = max - min;
 
                 for (int row = 0; row < inputs.GetLength(0); row++)
-                    result[row, column] = (inputs[row, column] - min) / divider;
+                {
+                    result[row, column] = divider != 0 
+                        ? (inputs[row, column] - min) / divider : 0;
+                }
             }
 
             return result;
